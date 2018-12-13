@@ -1,0 +1,1 @@
+<li class="nav-item"><a class="nav-link" href="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>account/register"><?php echo \Idno\Core\Idno::site()->language()->_('Register'); ?></a></li>
