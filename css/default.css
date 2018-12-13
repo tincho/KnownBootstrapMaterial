@@ -795,7 +795,7 @@ div.pane div.row:nth-of-type(odd) {
 	border: 3px solid #73b2e3;
 }
 
-a {
+/*a {
     color: #4c93cb;
     text-decoration: none;
     font-weight: 400;
@@ -803,7 +803,7 @@ a {
 
 a:hover, a:focus {
 	color: #357ebd;
-}
+}*/
 
 /* input[type="email"], input[type="password"], input[type="text"]  {
 	border: 1px solid #dddddd;

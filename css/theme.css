@@ -1,3 +1,6 @@
+/*
+custom bootstrap material theme override
+*/
 .idno_pages_homepage  .idno-entry-video .entry-content video {
     max-height: 540px;
 }

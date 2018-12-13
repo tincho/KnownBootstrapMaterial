@@ -11,10 +11,12 @@ if (!empty($vars['content'])) {
     $action .= 'content/all/';
 }
 
+$search = \Idno\Core\Idno::site()->language()->_('Search');
+
 ?>
 
 <form class="form-inline my-2 my-lg-0" action="<?php echo $action?>" method="get" role="search">
-    <input class="form-control mr-sm-2 search-query" name="q" type="text" placeholder="Search" aria-label="Search" value="<?php
+    <input class="form-control mr-sm-2 search-query" name="q" type="text" placeholder="<?= $search; ?>" aria-label="<?= $search; ?>" value="<?php
 
 if (!empty($currentPage)) {
     if ($q = $currentPage->getInput('q')) {
@@ -23,5 +25,5 @@ if (!empty($currentPage)) {
 }
 
 ?>">
-    <button class="btn btn-outline-success my-2 my-sm-0 d-md-none" type="submit">Search</button>
+    <button class="btn btn-outline-success my-2 my-sm-0 d-md-none" type="submit"><?= $search; ?></button>
 </form>
