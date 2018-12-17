@@ -4,3 +4,13 @@ custom bootstrap material theme override
 .idno_pages_homepage  .idno-entry-video .entry-content video {
     max-height: 540px;
 }
+
+.ekko-lightbox-nav-overlay {
+    text-shadow: 1px 1px 2px #141414;
+}
+
+@media (max-width: 767px) {
+    .ekko-lightbox-nav-overlay a {
+        opacity: 1 !important;
+    }
+}
