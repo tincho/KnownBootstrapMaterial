@@ -17,11 +17,9 @@ if ($filtered) {
 ?>
 
     <li class="nav-item <?php if ($filtered) echo 'active' ?> dropdown" tabindex="3">
-        <a 
+        <a  href="#"
             class="nav-link dropdown-toggle dropdown-toggle-split " 
-            href="#" id="dropdown01"
-            data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             title="<?php
                 echo \Idno\Core\Idno::site()->language()->_('Filter content');
                 if (!empty($friendly_name)) echo ' (' . $friendly_name . ')';
@@ -47,12 +45,9 @@ if ($filtered) {
                     echo $this->__(array( 'content_type' => $content_type, 'search' => $search ))->draw("shell/toolbar/content/type");
                 }
             }
+            // this is used by CustomFilter plugin
+            echo $this->__(array( 'search' => $search ))->draw("shell/toolbar/content/extra");
             ?>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-                <span class="dropdown-menu-icon"><i class="fa fa-cog"></i></span>
-                <?php echo \Idno\Core\Idno::site()->language()->_('Custom'); ?>
-            </a>
         </div>
     </li>
 
