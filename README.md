@@ -2,12 +2,13 @@
 
 Based on https://github.com/FezVrasta/bootstrap-material-design
 
+![theme preview](https://raw.githubusercontent.com/tincho/KnownBootstrapMaterial/master/preview.png)
+
 ## Features 
 
 * Bootstrap 4 instead of 3.
 
 * Heavy template replacement, and some extending. So maybe it'll have to be kept up-to-date with Known's changes over time.
-
 ** Both Known's core plugins (StaticPages) as well as non-core plugins get extended/replaced, ("Apply to join", "Lightbox", "Github"). 
 
 * Ekko-Lightbox newest version.
