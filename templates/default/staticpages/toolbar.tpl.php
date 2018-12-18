@@ -8,8 +8,12 @@
 if ($staticpages = \Idno\Core\Idno::site()->plugins()->get('StaticPages')) {
     /* @var \IdnoPlugins\StaticPages\Main $staticpages */
     if ($pages_list = $staticpages->getPagesAndCategories()) {
+
+        function getPath($page) {
+            return str_replace(\Idno\Core\Idno::site()->config()->getDisplayURL(), '', $page->getURL());
+        }
 ?>
-<ul class="navbar-nav ml-auto mr-4">
+<ul class="navbar-nav mr-2">
 <?php
         foreach ($pages_list as $category => $pages) {
             if (!empty($pages) || substr($category, 0, 1) == '#') {
@@ -17,9 +21,12 @@ if ($staticpages = \Idno\Core\Idno::site()->plugins()->get('StaticPages')) {
                     if (!empty($pages)) {
                         foreach ($pages as $page) {
                             if (!$page->isHomepage()) {
+                                $activeClass = '';
+                                if(\Idno\Core\Idno::site()->currentPage()->doesPathMatch('/'.getPath($page))) $activeClass .= 'active';
+
                                 ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo $page->getURL() ?>"><?php echo htmlspecialchars($page->getTitle()) ?></a>
+                                        <a class="nav-link <?=$activeClass; ?>" href="<?php echo $page->getURL() ?>"><?php echo htmlspecialchars($page->getTitle()) ?></a>
                                     </li>
                                     <?php
                             }
@@ -41,8 +48,10 @@ if ($staticpages = \Idno\Core\Idno::site()->plugins()->get('StaticPages')) {
                             if (!empty($pages)) {
                                 foreach ($pages as $page) {
                                     if (!$page->isHomepage()) {
+                                        $activeClass = '';
+                                        if(\Idno\Core\Idno::site()->currentPage()->doesPathMatch('/'.getPath($page))) $activeClass .= 'active';
                             ?>
-                                <a class="dropdown-item" href="<?php echo $page->getURL() ?>"><?php echo htmlspecialchars($page->getTitle()) ?></a>
+                                <a class="dropdown-item <?=$activeClass; ?>" href="<?php echo $page->getURL() ?>"><?php echo htmlspecialchars($page->getTitle()) ?></a>
                             <?php
                                     }
                                 }

@@ -1,4 +1,4 @@
-<ul class="navbar-nav" id="content-filter">
+<ul class="navbar-nav ml-auto" id="content-filter">
 <?php
 
     $content_types = \Idno\Common\ContentType::getRegistered();

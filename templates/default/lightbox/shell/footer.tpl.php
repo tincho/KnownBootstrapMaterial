@@ -13,6 +13,7 @@ $(document).on('click', '[data-toggle="lightbox"][data-remote]', function(event)
 			// _timeout = setTimeout(this._$modalArrows.show.bind(this._$modalArrows), 1000);
 		},
 		onContentLoaded: function() {
+			// add a link to the post inside the lightbox modal
 			var showLink = this._$element.attr('href') != this._$element.data('remote');
 			if (showLink) {
 				$extLink.attr('href', this._$element.attr('href'));

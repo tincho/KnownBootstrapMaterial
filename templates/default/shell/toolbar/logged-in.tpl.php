@@ -2,8 +2,8 @@
 // what are logged-in/items ?
 //// echo $this->draw('shell/toolbar/logged-in/items');
 ?>
-<ul class="navbar-nav border-left">
-<li class="nav-item dropdown">
+<ul class="navbar-nav logged-in float-right">
+  <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
         <i class="fa fa-user"></i>
         <?php echo htmlspecialchars(\Idno\Core\Idno::site()->session()->currentUser()->getTitle())?>
@@ -53,5 +53,5 @@
         <?php // echo $this->draw('shell/toolbar/logout'); ?>
         <?php echo \Idno\Core\Idno::site()->actions()->createLink(\Idno\Core\Idno::site()->config()->getDisplayURL() . 'session/logout', \Idno\Core\Idno::site()->language()->_('Sign out'), null, array('class' => 'dropdown-item')); ?>
     </div>
-</li>
+  </li>
 </ul>

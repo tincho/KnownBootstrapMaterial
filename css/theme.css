@@ -1,6 +1,19 @@
 /*
 custom bootstrap material theme override
 */
+
+.idnoplugins_staticpages_pages_homepage #content-filter,
+.idnoplugins_staticpages_pages_homepage .navbar form,
+.idnoplugins_staticpages_pages_homepage .navbar .media-gallery,
+.idnoplugins_staticpages_pages_homepage .navbar .login-etc,
+.idnoplugins_staticpages_pages_homepage .navbar .logged-in {
+    display: none; 
+}
+
+.idno-entry .p-author {
+    display: none !important;
+}
+
 .idno_pages_homepage  .idno-entry-video .entry-content video {
     max-height: 540px;
 }
@@ -14,3 +27,22 @@ custom bootstrap material theme override
         opacity: 1 !important;
     }
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+  

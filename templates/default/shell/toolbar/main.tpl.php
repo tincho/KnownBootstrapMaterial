@@ -15,9 +15,9 @@ $description = \Idno\Core\Idno::site()->config()->description;
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
-      <?php if ($allowContent) { echo $this->draw('shell/toolbar/search'); } ?>
-      <?php if ($allowContent) { echo $this->draw('shell/toolbar/content'); } ?>
       <?php echo $this->draw('shell/toolbar/links'); // content is actually at staticpages/toolbar.tpl.php ?>
+      <?php if ($allowContent) { echo $this->draw('shell/toolbar/content'); } ?>
+      <?php if ($allowContent) { echo $this->draw('shell/toolbar/search'); } ?>
       <?php if ($isLogged) { echo $this->draw('shell/toolbar/logged-in'); } ?>
       <?php if (!$isLogged) { echo $this->draw('shell/toolbar/logged-out'); } ?>
     </div>
