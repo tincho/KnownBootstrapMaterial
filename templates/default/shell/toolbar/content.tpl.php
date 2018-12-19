@@ -10,7 +10,7 @@ if (!empty($content_types)) {
         $search = '';
 }
 
-$filtered = !empty($vars['content']);
+$filtered = (!empty($vars['content']) && $vars['content'][0] != 'default');
 if ($filtered) {
     $friendly_name = \Idno\Common\ContentType::categoryTitleSlugsToFriendlyName($vars['content']);
 }

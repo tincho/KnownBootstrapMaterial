@@ -9,11 +9,22 @@ if ($staticpages = \Idno\Core\Idno::site()->plugins()->get('StaticPages')) {
     /* @var \IdnoPlugins\StaticPages\Main $staticpages */
     if ($pages_list = $staticpages->getPagesAndCategories()) {
 
+        if (!function_exists(_route)) {
+            function _route($url) {
+                return str_replace(\Idno\Core\Idno::site()->config()->getDisplayURL(), '', $url);
+            }
+        }
         function getPath($page) {
-            return str_replace(\Idno\Core\Idno::site()->config()->getDisplayURL(), '', $page->getURL());
+            return _route($page->getURL());
+        }
+        if (!function_exists(isContent)) {
+            function isContent() {
+                $route = _route(\Idno\Core\Idno::site()->currentPage()->currentUrl());
+                return !!preg_match('/^content/', $route);
+            }
         }
 ?>
-<ul class="navbar-nav mr-2">
+<ul class="navbar-nav mr-2 ml-2">
 <?php
         foreach ($pages_list as $category => $pages) {
             if (!empty($pages) || substr($category, 0, 1) == '#') {
@@ -60,6 +71,20 @@ if ($staticpages = \Idno\Core\Idno::site()->plugins()->get('StaticPages')) {
                             </div>
                         </li>
                     <?php
+
+if (false && !empty(\Idno\Core\Idno::site()->config->staticPages['homepage'])) {
+    // there is a homepage so link the stream
+    ?>
+    <li class="nav-item">
+        <a class="nav-link <?php if(isContent()) echo 'active'; ?>" href="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL(); ?>content/default">
+            <i class="fa fa-stream">
+            </i>
+            <abbr title="Timeline">TL</abbr>
+        </a>
+    </li><?php
+}
+
+
                 }
 
             }
